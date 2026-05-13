@@ -38,6 +38,7 @@ function App() {
 
   // Shadow generator state
   const [baseColor, setBaseColor] = useState<OklchColor | null>(null)
+  const [shadowBasePoint, setShadowBasePoint] = useState<PathPoint | null>(null)
   const [shadowEnabled, setShadowEnabled] = useState(true)
   const [shadowPreset, setShadowPreset] = useState<ShadowInfluencePreset>('natural')
   const [shadowStrength, setShadowStrength] = useState(0.9)
@@ -47,11 +48,11 @@ function App() {
   // Hidden color generator state
   const [hiddenColorStyle, setHiddenColorStyle] = useState<HiddenColorStyle>('neutralGray')
   const [lockLightness, setLockLightness] = useState(true)
+  const [hiddenColorBasePoint, setHiddenColorBasePoint] = useState<PathPoint | null>(null)
   const [variationStrength, setVariationStrength] = useState(0.5)
   const [hiddenColorCount, setHiddenColorCount] = useState(5)
   const [hiddenColorBaseColor, setHiddenColorBaseColor] = useState<OklchColor | null>(null)
   const [hiddenColorVariations, setHiddenColorVariations] = useState<OklchColor[]>([])
-  const [hiddenColorHexInput, setHiddenColorHexInput] = useState('')
 
   const environmentColor = useMemo(() => (
     hexToOklch(environmentColorHex) ?? { l: 0.68, c: 0.35, h: 210 }
@@ -100,11 +101,13 @@ function App() {
   const handleAddPoint = useCallback((point: PathPoint) => {
     if (mode === 'shadow') {
       setBaseColor(point.color)
+      setShadowBasePoint(point)
       return
     }
 
     if (mode === 'hidden-color') {
       setHiddenColorBaseColor(point.color)
+      setHiddenColorBasePoint(point)
       return
     }
 
@@ -119,9 +122,11 @@ function App() {
     setPath([])
     if (mode === 'hidden-color') {
       setHiddenColorBaseColor(null)
+      setHiddenColorBasePoint(null)
     }
     if (mode === 'shadow') {
       setBaseColor(null)
+      setShadowBasePoint(null)
     }
   }, [mode])
 
@@ -141,9 +146,11 @@ function App() {
     }
     if (newMode !== 'hidden-color') {
       setHiddenColorBaseColor(null)
+      setHiddenColorBasePoint(null)
     }
     if (newMode !== 'shadow') {
       setBaseColor(null)
+      setShadowBasePoint(null)
       setShadowEnabled(true)
     }
   }
@@ -273,6 +280,8 @@ function App() {
             constraints={constraints}
             path={path}
             shadowPath={mode === 'shadow' && shadowEnabled ? shadowTransformedPath : undefined}
+            shadowBasePoint={shadowBasePoint}
+            hiddenColorBasePoint={hiddenColorBasePoint}
             onAddPoint={handleAddPoint}
             onDeletePoint={handleDeletePoint}
             onUpdatePoint={handleUpdatePoint}
