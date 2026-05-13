@@ -1,0 +1,197 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.subtitle {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 3rem 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  min-height: 200px;
+}
+
+.emptyIcon {
+  display: flex;
+  opacity: 0.5;
+}
+
+.emptyText {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Selector */
+.selector {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.selectorButton {
+  flex: 1;
+  padding: 0.625rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectorButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.selectorButton.active {
+  background: rgba(100, 200, 255, 0.6);
+  border-color: rgba(100, 200, 255, 0.7);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Canvas */
+.canvasContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 300px;
+}
+
+.canvas {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3));
+}
+
+/* Info section */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.colorPalette {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.paletteLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+}
+
+.paletteSwatch {
+  display: flex;
+  gap: 0.375rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.swatch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.description {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  padding: 0.875rem 1rem;
+  background: rgba(120, 255, 180, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(120, 255, 180, 0.2);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .canvasContainer {
+    min-height: 250px;
+    padding: 1.5rem 1rem;
+  }
+  
+  .selector {
+    flex-direction: column;
+  }
+  
+  .selectorButton {
+    width: 100%;
+  }
+  
+  .colorPalette {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .paletteSwatch {
+    width: 100%;
+  }
+  
+  .swatch {
+    flex: 1;
+    min-width: 0;
+  }
+}

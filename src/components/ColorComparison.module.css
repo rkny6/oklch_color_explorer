@@ -1,0 +1,331 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.count {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.625rem;
+  border-radius: 4px;
+}
+
+.countControls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.countButton {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.countButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.countButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.countButton:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem 1rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.emptyIcon {
+  display: flex;
+  opacity: 0.5;
+}
+
+.emptyText {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.info {
+  padding: 0.875rem 1rem;
+  background: rgba(100, 200, 255, 0.1);
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  border-radius: 8px;
+}
+
+.infoText {
+  font-size: 0.8125rem;
+  color: rgba(100, 200, 255, 0.9);
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Base color */
+.baseSwatch {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.baseSwatch:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(100, 200, 255, 0.3);
+}
+
+.baseColor {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.colorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.colorInfo .hex {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.colorInfo .label {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.copyHint {
+  position: absolute;
+  right: 1rem;
+  font-size: 0.8125rem;
+  color: rgba(100, 200, 255, 0.8);
+  font-weight: 500;
+  background: rgba(100, 200, 255, 0.15);
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* Color grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 0.5rem;
+}
+
+.colorCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.colorCard:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(100, 200, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.colorCard.hovered {
+  border-color: rgba(100, 200, 255, 0.5);
+}
+
+.colorSwatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.colorCard:hover .colorSwatch {
+  transform: scale(1.02);
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.index {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.hex {
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  word-break: break-all;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  animation: fadeIn 0.15s ease;
+}
+
+.copyText {
+  color: rgba(100, 200, 255, 0.95);
+}
+
+.copied {
+  color: rgba(120, 255, 180, 0.95);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Gradient preview */
+.gradient {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Comparison tip */
+.comparisonTip {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: rgba(120, 255, 180, 0.1);
+  border: 1px solid rgba(120, 255, 180, 0.2);
+  border-radius: 8px;
+}
+
+.tipIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.tipText {
+  font-size: 0.8125rem;
+  color: rgba(120, 255, 180, 0.85);
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .baseSwatch {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+  
+  .baseColor {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .copyHint {
+    position: static;
+    margin-top: 0.5rem;
+  }
+}

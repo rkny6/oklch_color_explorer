@@ -1,0 +1,281 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 16px);
+  padding: clamp(10px, 2vw, 16px);
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1.5vw, 10px);
+}
+
+.label {
+  font-size: clamp(9px, 1.5vw, 11px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: clamp(2px, 1vw, 4px) 0;
+}
+
+/* Hex Input */
+.inputGroup {
+  display: flex;
+  gap: clamp(6px, 1.5vw, 8px);
+}
+
+.hexInput {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(6px, 1.5vw, 8px) clamp(8px, 1.5vw, 12px);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'SF Mono', ui-monospace, monospace;
+  font-size: clamp(11px, 1.5vw, 13px);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.hexInput:focus {
+  border-color: var(--accent);
+}
+
+.hexInput::placeholder {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.applyButton {
+  padding: clamp(6px, 1.5vw, 8px) clamp(10px, 2vw, 14px);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: var(--bg-primary);
+  font-size: clamp(10px, 1.5vw, 12px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.applyButton:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.applyButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Color Preview */
+.baseColorDisplay {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.5vw, 10px);
+  padding: clamp(6px, 1.5vw, 8px);
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.colorPreview {
+  width: clamp(24px, 5vw, 36px);
+  height: clamp(24px, 5vw, 36px);
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.colorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hexValue {
+  font-family: 'SF Mono', ui-monospace, monospace;
+  font-size: clamp(11px, 1.5vw, 13px);
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.colorMeta {
+  font-size: clamp(8px, 1vw, 10px);
+  color: var(--text-muted);
+}
+
+/* Style Options */
+.presets {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1vw, 6px);
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.preset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1px, 0.5vw, 2px);
+  padding: clamp(8px, 1.5vw, 10px) clamp(10px, 1.5vw, 12px);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.preset:hover {
+  border-color: var(--text-muted);
+}
+
+.preset.active {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: var(--accent);
+}
+
+.presetName {
+  font-size: clamp(11px, 1.5vw, 13px);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.presetDesc {
+  font-size: clamp(8px, 1vw, 10px);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* Toggle */
+.sliderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 1.5vw, 10px);
+}
+
+.rangeSlider {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.sliderValue {
+  font-size: clamp(11px, 1.5vw, 13px);
+  color: var(--text-primary);
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(6px, 1.5vw, 8px);
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.5vw, 8px);
+  padding: clamp(6px, 1.5vw, 8px) clamp(10px, 1.5vw, 12px);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: clamp(11px, 1.5vw, 13px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.toggle:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+.toggle.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-primary);
+}
+
+.toggleIcon {
+  font-size: clamp(12px, 2vw, 14px);
+  line-height: 1;
+}
+
+.toggleDescription {
+  font-size: clamp(9px, 1.5vw, 11px);
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Clear Button */
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(24px, 5vw, 28px);
+  height: clamp(24px, 5vw, 28px);
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.clearButton:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+
+/* OKLCH Value */
+.oklchValue {
+  font-family: 'SF Mono', ui-monospace, monospace;
+  font-size: clamp(8px, 1vw, 10px);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Hint Text */
+.hint {
+  font-size: clamp(9px, 1.5vw, 11px);
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 14px;
+  }
+
+  .toggleRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

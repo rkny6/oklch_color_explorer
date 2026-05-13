@@ -1,0 +1,306 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 5vw, 24px) clamp(16px, 5vw, 24px) clamp(8px, 3vw, 16px);
+  position: relative;
+  flex-shrink: 0;
+  gap: clamp(8px, 2vw, 16px);
+}
+
+.headerContent {
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(16px, 4vw, 24px);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: clamp(11px, 2vw, 14px);
+  color: var(--text-muted);
+  margin-top: clamp(2px, 1vw, 4px);
+}
+
+.infoButton {
+  position: absolute;
+  right: clamp(12px, 3vw, 24px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(28px, 6vw, 36px);
+  height: clamp(28px, 6vw, 36px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.infoButton:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+/* Mode Switcher */
+.modeSwitcher {
+  display: flex;
+  justify-content: center;
+  gap: clamp(2px, 1vw, 4px);
+  padding: 0 clamp(12px, 3vw, 24px) clamp(8px, 2vw, 16px);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.modeButton {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 1vw, 6px);
+  padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2vw, 16px);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: clamp(11px, 2vw, 13px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.modeButton:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+
+.modeButton.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-primary);
+}
+
+.modeButton.active:hover {
+  opacity: 0.9;
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  /* grid-template-columns: minmax(120px, 200px) 1fr minmax(150px, 240px); */
+  grid-template-columns: minmax(200px, 280px) 0.9fr minmax(220px, 340px);
+  /* grid-template-columns:
+    minmax(200px, 280px)
+    minmax(320px, 0.9fr)
+    minmax(200px, 340px); */
+
+  gap: clamp(8px, 2vw, 16px);
+
+  /* max width of the three panels */
+  max-width: 1400px;
+
+  /* horizontally centered++ */
+  margin: 0 auto;
+
+  width: 100%;
+  padding: 0 clamp(12px, 3vw, 24px) clamp(8px, 2vw, 16px);
+
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.lightnessSection {
+  padding: clamp(10px, 2vw, 16px);
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: clamp(8px, 2vw, 12px);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 1.5vw, 12px);
+  margin-bottom: clamp(6px, 1.5vw, 10px);
+}
+
+.lightnessLabel {
+  font-size: clamp(9px, 1.5vw, 11px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.lightnessValue {
+  font-size: clamp(11px, 1.5vw, 13px);
+  color: var(--text-primary);
+}
+
+.lightnessSlider {
+  width: 100%;
+  accent-color: var(--accent);
+  margin-bottom: clamp(4px, 1vw, 6px);
+}
+
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(8px, 1vw, 10px);
+  color: var(--text-muted);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: clamp(8px, 2vw, 12px) 0;
+}
+
+.canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 0;
+  background: var(--bg-secondary);
+}
+
+/* Hidden Colors mode no longer forces a smaller canvas size */
+.palette {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(8px, 2vw, 12px);
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px) clamp(12px, 3vw, 20px);
+  font-size: clamp(9px, 1.5vw, 11px);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: minmax(100px, 160px) 1fr minmax(120px, 180px);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px, 150px) 1fr minmax(100px, 150px);
+    gap: clamp(6px, 2vw, 12px);
+    padding: 0 clamp(8px, 2vw, 12px) clamp(6px, 2vw, 12px);
+  }
+
+  .sidebar {
+    order: 1;
+    max-height: 150px;
+  }
+
+  .canvas {
+    order: 2;
+    aspect-ratio: 1;
+    max-width: 100%;
+  }
+
+  .palette {
+    order: 3;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: clamp(10px, 3vw, 12px) clamp(12px, 3vw, 16px) clamp(6px, 2vw, 8px);
+  }
+
+  .modeSwitcher {
+    padding: 0 clamp(8px, 2vw, 12px) clamp(6px, 2vw, 8px);
+  }
+
+  .main {
+    grid-template-rows: minmax(80px, 120px) 1fr minmax(80px, 120px);
+    gap: clamp(4px, 1.5vw, 8px);
+    padding: 0 clamp(6px, 2vw, 8px) clamp(4px, 1.5vw, 8px);
+  }
+
+  .sidebar,
+  .palette {
+    max-height: 120px;
+    overflow-y: auto;
+  }
+}
+
+/* Hidden Color Mode */
+.hiddenColorCanvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+}
+
+.hiddenColorPalette {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.useCasePreview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.shadowPreviewSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.useCaseSection {
+  padding: 0 24px 16px;
+}
+
